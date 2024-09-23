@@ -1,0 +1,19 @@
+[package]
+name = "ed25519-gen-speed-test"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+atomic-counter = "1.0.1"
+ed25519-dalek = { version = "2.1.1", default-features = false }
+fastrand = "2.1.1"
+quanta = "0.12.3"
+thread-priority = "1.1.0"
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+lto = "fat"
+panic = "abort"
+codegen-units = 1
